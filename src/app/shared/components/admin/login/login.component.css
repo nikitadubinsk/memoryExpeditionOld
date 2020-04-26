@@ -1,0 +1,133 @@
+section {
+    background: url(../../../../../assets/mainBack.png) no-repeat center top / cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    color: #dc4128;
+    font-weight: 900;
+    font-size: 35px;
+    margin-bottom: 2%;
+}
+
+form {
+    padding: 2%;
+    width: 50vw;
+    border: 7px solid #dc4128;
+    border-radius: 20px;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    width:  80%;
+    border-radius: 5px;
+    border: 1px solid #dc4128;
+    font-size: 18px;
+    font-weight: 100;
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    background: #dc4128;
+    padding: 1%;
+    color: white;
+    display: block;
+    border: 0px solid #dc4128;
+    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 15px;
+    margin-left: 10%;
+}
+
+.is-invalid {
+    border: 1px solid #dc4128;
+}
+
+.is-valid {
+    border: 1px solid #55B432;
+}
+
+.text-danger {
+    color: #dc4128;
+    font-style: italic;
+    font-weight: 100;
+}
+
+button:hover {
+    background: #da2b0f;
+}
+
+button:disabled {
+    background: #d55b47;
+}
+
+.alert {
+    border: 1px solid #dc4128;
+    color: white;
+    background: #dc4128;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+p {
+    font-weight: 900;
+    margin-top: 10px;
+    color: #dc4128;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+i {
+    color: #dc4128;
+    margin-right: 5px;
+    font-weight: 900;
+}
+
+@media (max-width: 800px) {
+    p {
+        font-size: 17px;
+    }
+
+    h2 {
+        font-size: 25px;
+        margin-bottom: 2%;
+    }
+    
+    form {
+        padding: 2%;
+        width: 95vw;
+        border: 3px solid #dc4128;
+        border-radius: 10px;
+    }
+
+    .alert {
+        font-size: 13px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    button {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    input {
+        width: 90%;
+    }
+}

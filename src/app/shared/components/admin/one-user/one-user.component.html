@@ -1,0 +1,8 @@
+<div>
+    <p>{{idx+1}}</p>
+    <p>{{user.name}}</p>
+    <p>{{user.link}}</p>
+    <p>{{user.time | date: 'HH:mm dd.MM.yy'}}</p>
+    <p>{{user.points}}</p>
+    <button (click)="deleteUser()">Удалить</button>
+</div>

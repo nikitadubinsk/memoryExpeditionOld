@@ -1,0 +1,7 @@
+input, select, option {
+    display: block;
+    padding: 10px;
+    margin: 1%;
+    width: 40%;
+    font-size: 20px;
+}

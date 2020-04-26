@@ -1,0 +1,41 @@
+div {
+    display: grid;
+    grid-template-columns: 5% 25% 35% 15% 10% 10%;
+    grid-template-rows: 1fr;
+    padding: 1%;
+    border-bottom: 1px solid black;
+    width: 100%;
+    align-items: center;
+}
+
+div p {
+    text-align: center;
+}
+
+p:nth-child(5) {
+    font-weight: 900;
+}
+
+button {
+    padding: 2%;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 5px;
+    border: 2px solid #dc4128;
+    background: #dc4128;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background: transparent;
+    color: #dc4128;
+}
+
+@media (max-width: 800px) {
+    div {
+        width: 180vw;
+    }
+}

@@ -1,0 +1,56 @@
+<main>
+    <div>
+        <h1 *ngIf="!openFullQuestionFlag && !loading">Экспедиция памяти</h1>
+        <div class="FullTable">
+            <div *ngIf="!openFullQuestionFlag && !loading" class="allTable">
+                <p>Полководцы</p>
+                <app-one-coast
+                    *ngFor="let question of category1"
+                    [question]="question"
+                    (openFullQuestion)="openFull($event)"
+                    (onAllId)="allId($event)"
+                    [allId] = "allID"
+                ></app-one-coast>
+                <p>Военная техника и оружие</p>
+                <app-one-coast
+                    *ngFor="let question of category2"
+                    [question]="question"
+                    (openFullQuestion)="openFull($event)"
+                    (onAllId)="allId($event)"
+                    [allId] = "allID"
+                ></app-one-coast>
+                <p>Города и сражения</p>
+                <app-one-coast
+                    *ngFor="let question of category3"
+                    [question]="question"
+                    (openFullQuestion)="openFull($event)"
+                    (onAllId)="allId($event)"
+                    [allId] = "allID"
+                ></app-one-coast>
+                <p>Подвиги и герои</p>
+                <app-one-coast
+                    *ngFor="let question of category4"
+                    [question]="question"
+                    (openFullQuestion)="openFull($event)"
+                    (onAllId)="allId($event)"
+                    [allId] = "allID"
+                ></app-one-coast>
+                <p>Животные на войне</p>
+                <app-one-coast
+                    *ngFor="let question of category5"
+                    [question]="question"
+                    (openFullQuestion)="openFull($event)"
+                    (onAllId)="allId($event)"
+                    [allId] = "allID"
+                ></app-one-coast>
+            </div>
+        </div>
+        <p *ngIf="loading" class="loading">Загрузка...</p>
+        <app-one-question 
+            *ngIf="openFullQuestionFlag && !loading"
+            [question]="question"
+            (onPoints)="plusPoints($event)"
+            (onFlag)="close($event)"
+        ></app-one-question>
+    </div>
+</main>

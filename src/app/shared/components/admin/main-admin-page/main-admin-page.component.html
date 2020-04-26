@@ -1,0 +1,28 @@
+<nav>
+    <h1>Административная панель</h1>
+    <ul>
+        <li [routerLink]="['/newQuestion']"><i class="fas fa-plus"></i></li>
+        <li [routerLink]="['/']" (click)="logout()"><i class="fas fa-sign-out-alt"></i></li>
+    </ul>
+</nav>
+
+<section id="block">
+    <h2>Список всех участников</h2>
+    <div *ngIf="!loading">
+        <div class="row">
+            <p *ngIf="sortIdTouch" class="pointer" (click)="sortId()" [ngClass]="{'bold' : sortID, 'bold': sortID, 'light' : !sortID}">↑ По количеству баллов</p>
+            <p *ngIf="!sortIdTouch" class="pointer" (click)="sortId()" [ngClass]="{'bold' : sortID, 'bold': sortID, 'light' : !sortID}">↓ По количеству баллов</p>
+            <p *ngIf="sortAgeTouch" class="ml-5 pointer" (click)="sortAge()" [ngClass]="{'bold' : sortAGE, 'bold': sortAGE, 'light' : !sortAGE}">↑ По дате начала игры</p>
+            <p *ngIf="!sortAgeTouch" class="ml-5 pointer" (click)="sortAge()" [ngClass]="{'bold' : sortAGE, 'bold': sortAGE, 'light' : !sortAGE}">↓ По дате начала игры</p>
+        </div>
+        <app-one-user
+            *ngFor="let user of allUsers; let i = index"
+            [user]="user"
+            [idx] = "i"
+            (onDelete)="deleteUser($event)"
+        ></app-one-user>
+    </div>
+    <div *ngIf="loading">
+        <h3>Загрузка...</h3>
+    </div>
+</section>

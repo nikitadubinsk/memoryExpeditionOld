@@ -1,0 +1,17 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: rgba(255,255, 255, 0.7)
+}
+
+p {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.grey {
+    color: #ededed;
+    cursor: default;
+}

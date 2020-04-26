@@ -1,0 +1,16 @@
+<section>
+    <form [formGroup]="form" (ngSubmit)="submit">
+        <h2>Войти как администратор</h2>
+        <div class="alert" *ngIf="error$ | async as error">{{error}}</div>
+        <input type="email" placeholder="Адрес электронной почты" name="email" formControlName="email" [ngClass]="{'is-invalid' : (form.get('email').invalid && form.get('email').touched), 'is-valid' : !form.get('email').invalid && form.get('email').touched}">
+        <div class="validation" >
+            <small class="text-danger" *ngIf="form.get('email').invalid && form.get('email').touched">Поле не может быть пустым</small>
+        </div>
+        <input placeholder="Пароль" type="password" name="password" formControlName="password" [ngClass]="{'is-invalid' : (form.get('password').invalid && form.get('password').touched), 'is-valid' : !form.get('password').invalid && form.get('password').touched}">
+        <div class="validation" >
+            <small class="text-danger" *ngIf="form.get('password').invalid && form.get('password').touched">Поле не может быть пустым</small>
+        </div>
+        <button type="submit" (click)="submit()" [disabled]="form.invalid">Войти как администратор</button>
+        <p [routerLink]="['/']"><i class="fas fa-arrow-left"></i>Вернуться на главную</p>
+    </form>
+</section>

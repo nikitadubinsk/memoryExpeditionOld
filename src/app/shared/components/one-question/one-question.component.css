@@ -1,0 +1,138 @@
+.fullQuestion {
+    width: 80vw;
+    margin: 3% 0;
+}
+
+.answer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 1vw;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.block {
+    border: 7px solid #dc4128;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 1%;
+}
+
+.question {
+    padding: 2%;
+    text-align: center;
+    background: #dc4128;
+    color: white;
+}
+
+.question p {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.video {
+    padding: 2%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+}
+
+.onevideo {
+    width: 100%;
+    height: 40vh;
+}
+
+.onePicture {
+    max-height: 40vh;
+    max-width: 100%;
+}
+
+.answer p {
+    text-align: center;
+    border: 7px solid #dc4128;
+    padding: 2%;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.answer p:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+.answer p:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+.chooseAnAnswer {
+    border: 7px solid #856404 !important;
+    background: #fff3cd !important;
+}
+
+.answerTrue {
+    border: 7px solid #155724 !important;
+    background: #d4edda !important;
+}
+
+.answerFalse {
+    border: 7px solid #721c24 !important;
+    background: #f8d7da !important;
+}
+
+.continue {
+    width: 100%;
+    margin-top: 1%;
+    font-weight: 900;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.continue i {
+    margin-left: 5px;
+}
+
+@media (max-width: 800px) {
+
+    main {
+        width: 90vw;
+        overflow: hidden;
+        margin: 5%;
+    }
+
+    .fullQuestion {
+        width: 90vw;
+        margin-left: 5%;
+        margin-left: 1%;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .answer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 1vw;
+    }
+
+    .answer p:first-child {
+        border-bottom-left-radius: 0;
+    }
+    
+    .answer p:last-child {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+}

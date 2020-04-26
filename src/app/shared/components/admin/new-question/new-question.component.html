@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit">
+    <input type="text" placeholder="Текст вопроса" formControlName="text">
+    <input type="number" placeholder="Стоимость вопроса" formControlName="cost">
+    <select formControlName="category">
+        <option value="category1">Категория 1</option>
+        <option value="category2">Категория 2</option>
+        <option value="category3">Категория 3</option>
+        <option value="category4">Категория 4</option>
+        <option value="category5">Категория 5</option>
+    </select>
+    <input type="text" placeholder="Первый вариант" formControlName="answer1">
+    <input type="text" placeholder="Второй вариант" formControlName="answer2">
+    <input type="text" placeholder="Третий вариант" formControlName="answer3">
+    <select formControlName="correctAnswer">
+        <option value="1">Первый ответ</option>
+        <option value="2">Второй Ответ</option>
+        <option value="3">Третий ответ</option>
+    </select>
+    <input type="text" placeholder="Ссылка на видео" formControlName="URLVideo">
+    <input type="text" placeholder="Ссылка на картинку" formControlName="URLPicture">
+    <input type="text" placeholder="Подробная информация" formControlName="details">
+    <button (click)="submit()">Сохранить ответ</button>
+</form>
