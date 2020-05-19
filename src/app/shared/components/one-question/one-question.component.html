@@ -15,6 +15,6 @@
             <p (click)="chooseAnAnswer(2)" [ngClass]="{chooseAnAnswer: chooseAnAnswerFlag[2], answerTrue: answerTrueFlag[2], answerFalse: answerFalseFlag[2]}">2. {{question.answer2}}</p>
             <p (click)="chooseAnAnswer(3)" [ngClass]="{chooseAnAnswer: chooseAnAnswerFlag[3], answerTrue: answerTrueFlag[3], answerFalse: answerFalseFlag[3]}">3. {{question.answer3}}</p>
         </div>
-        <p (click)="continue()" *ngIf="continueFlag" class="continue">Продолжить <i class="fas fa-arrow-right"></i></p>
+        <p (click)="continue()" [ngClass]="{opacity: continueFlag}" class="continue">Продолжить <i class="fas fa-arrow-right"></i></p>
     </div>
 </main>

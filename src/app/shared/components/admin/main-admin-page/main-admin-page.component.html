@@ -7,20 +7,26 @@
 </nav>
 
 <section id="block">
-    <h2>Список всех участников</h2>
     <div *ngIf="!loading">
+        <h2>Список всех участников</h2>
+        <h5 *ngIf="allUsers.length == 0">Пока нет ответов</h5>
         <div class="row">
-            <p *ngIf="sortIdTouch" class="pointer" (click)="sortId()" [ngClass]="{'bold' : sortID, 'bold': sortID, 'light' : !sortID}">↑ По количеству баллов</p>
-            <p *ngIf="!sortIdTouch" class="pointer" (click)="sortId()" [ngClass]="{'bold' : sortID, 'bold': sortID, 'light' : !sortID}">↓ По количеству баллов</p>
-            <p *ngIf="sortAgeTouch" class="ml-5 pointer" (click)="sortAge()" [ngClass]="{'bold' : sortAGE, 'bold': sortAGE, 'light' : !sortAGE}">↑ По дате начала игры</p>
-            <p *ngIf="!sortAgeTouch" class="ml-5 pointer" (click)="sortAge()" [ngClass]="{'bold' : sortAGE, 'bold': sortAGE, 'light' : !sortAGE}">↓ По дате начала игры</p>
+            <div class="row1">
+                <p *ngIf="sortPointsTouch" (click)="sortPoints()" [ngClass]="{'bold': sortPointsFlag, 'light' : !sortPointsFlag}">↑ По количеству баллов</p>
+                <p *ngIf="!sortPointsTouch" (click)="sortPoints()" [ngClass]="{'bold' : sortPointsFlag, 'light' : !sortPointsFlag}">↓ По количеству баллов</p>
+                <p *ngIf="sortTimeTouch" (click)="sortTime()" [ngClass]="{'bold' : sortTimeFlag,  'light' : !sortTimeFlag}">↑ По дате начала игры</p>
+                <p *ngIf="!sortTimeTouch" (click)="sortTime()" [ngClass]="{'bold' : sortTimeFlag, 'light' : !sortTimeFlag}">↓ По дате начала игры</p>
+            </div>
+            <i class="fas fa-redo" (click)="updateUser()"></i>
         </div>
-        <app-one-user
-            *ngFor="let user of allUsers; let i = index"
-            [user]="user"
-            [idx] = "i"
-            (onDelete)="deleteUser($event)"
-        ></app-one-user>
+        <div class="allUsers">
+            <app-one-user
+                *ngFor="let user of allUsers; let i = index"
+                [user]="user"
+                [idx] = "i"
+                (onDelete)="deleteUser($event)"
+            ></app-one-user>
+        </div>
     </div>
     <div *ngIf="loading">
         <h3>Загрузка...</h3>

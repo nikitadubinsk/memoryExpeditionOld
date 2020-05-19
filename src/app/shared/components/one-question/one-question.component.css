@@ -1,6 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 .fullQuestion {
     width: 80vw;
     margin: 3% 0;
+    box-sizing: border-box;
 }
 
 .answer {
@@ -95,6 +100,12 @@ h2 {
     font-size: 25px;
     cursor: pointer;
     text-align: right;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.opacity {
+    opacity: 1 !important;
 }
 
 .continue i {
@@ -103,20 +114,29 @@ h2 {
 
 @media (max-width: 800px) {
 
+    .block {
+        border: 3px solid #dc4128;
+        overflow: hidden;
+    }
+
     main {
         width: 90vw;
-        overflow: hidden;
+        overflow: scroll;
         margin: 5%;
+        box-sizing: border-box;
     }
 
     .fullQuestion {
-        width: 90vw;
-        margin-left: 5%;
-        margin-left: 1%;
+        width: 100%;
+    }
+
+    .question p {
+        text-align: center;
+        font-size: 18px;
     }
 
     h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .answer {
@@ -126,6 +146,11 @@ h2 {
         grid-gap: 1vw;
     }
 
+    .answer p {
+        border: 3px solid #dc4128;
+        font-size: 20px;
+    }
+
     .answer p:first-child {
         border-bottom-left-radius: 0;
     }
@@ -133,6 +158,18 @@ h2 {
     .answer p:last-child {
         border-bottom-right-radius: 20px;
         border-bottom-left-radius: 20px;
+    }
+
+    .chooseAnAnswer {
+        border: 3px solid #856404 !important;
+    }
+    
+    .answerTrue {
+        border: 3px solid #155724 !important;
+    }
+    
+    .answerFalse {
+        border: 3px solid #721c24 !important;
     }
 
 }

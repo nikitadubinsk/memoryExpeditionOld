@@ -14,15 +14,14 @@ export class MainAdminPageComponent implements OnInit {
   loading;
   error;
   keys;
-  sortID = false;
-  sortAGE = false;
-  sortIdTouch = true;
-  sortAgeTouch = true;
-  sortIdIndex = 0;
-  sortAgeIndex = 0;
-  sortIdUp = true;
-  sortAgeUp = true;
-  lenght = 0;
+  sortPointsFlag = false;
+  sortTimeFlag = false;
+  sortPointsTouch = true;
+  sortTimeTouch = true;
+  sortPointsIndex = 0;
+  sortTimeIndex = 0;
+  sortPointsUp = true;
+  sortTimeUp = true;
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
@@ -57,8 +56,32 @@ export class MainAdminPageComponent implements OnInit {
     console.log(user);
   }
 
-  sortId() {
-    if (this.sortIdUp) {
+  async updateUser() {
+    this.loading = true;
+    this.sortPointsFlag = false;
+    this.sortTimeFlag = false;
+    this.sortPointsTouch = true;
+    this.sortTimeTouch = true;
+    this.sortPointsIndex = 0;
+    this.sortTimeIndex = 0;
+    this.sortPointsUp = true;
+    this.sortTimeUp = true;
+    this.allUsers = [];
+    try {
+      this.allUsers = await this.questionService.getAllUsers();
+    } catch(e) {
+      console.log(e.message)
+    }
+    this.keys = Object.keys(this.allUsers);
+    this.allUsers = Object.values(this.allUsers);
+    for (let i=0; i<this.allUsers.length; i++) {
+      this.allUsers[i].id = this.keys[i];
+    }
+    this.loading = false;
+  }
+
+  sortPoints() {
+    if (this.sortPointsUp) {
       this.allUsers.sort((a, b) => {
         if (a.points > b.points) {return 1}
         if (a.points < b.points) {return -1}
@@ -71,18 +94,18 @@ export class MainAdminPageComponent implements OnInit {
         return 0;
       })
     }
-    this.sortIdUp = !this.sortIdUp;
-    this.sortID = true;
-    this.sortAGE = false;
-    if (this.sortIdIndex != 0) {
-      this.sortIdTouch = !this.sortIdTouch;
+    this.sortPointsUp = !this.sortPointsUp;
+    this.sortPointsFlag = true;
+    this.sortTimeFlag = false;
+    if (this.sortPointsIndex != 0) {
+      this.sortPointsTouch = !this.sortPointsTouch;
     }
-    this.sortIdIndex++;
-    this.sortAgeIndex = 0;
+    this.sortPointsIndex++;
+    this.sortTimeIndex = 0;
   }
 
-  sortAge() {
-    if (this.sortAgeUp) {
+  sortTime() {
+    if (this.sortTimeUp) {
       this.allUsers.sort((a, b) => {
         if (a.time < b.time) {return 1}
         if (a.time > b.time) {return -1}
@@ -95,14 +118,14 @@ export class MainAdminPageComponent implements OnInit {
         return 0;
       })
     }
-    this.sortAgeUp = !this.sortAgeUp;
-    this.sortAGE = true;
-    this.sortID = false;
-    if (this.sortAgeIndex != 0) {
-      this.sortAgeTouch = !this.sortAgeTouch;
+    this.sortTimeUp = !this.sortTimeUp;
+    this.sortTimeFlag = true;
+    this.sortPointsFlag = false;
+    if (this.sortTimeIndex != 0) {
+      this.sortTimeTouch = !this.sortTimeTouch;
     }
-    this.sortAgeIndex++;
-    this.sortIdIndex = 0;
+    this.sortTimeIndex++;
+    this.sortPointsIndex = 0;
   }
 
 }
