@@ -35,9 +35,10 @@ export class MainAdminPageComponent implements OnInit {
     }
     this.keys = Object.keys(this.allUsers);
     this.allUsers = Object.values(this.allUsers);
-    for (let i=0; i<this.allUsers.length; i++) {
-      this.allUsers[i].id = this.keys[i];
-    }
+    this.allUsers = this.allUsers.map((el, index) => {
+      el['id'] = this.keys[index]
+      return el
+    })
     this.loading = false;
   }
 

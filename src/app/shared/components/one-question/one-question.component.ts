@@ -13,7 +13,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
         style({ opacity: 0 }),
         animate(1000)
       ])
-    ])
+    ]),
   ]
 })
 export class OneQuestionComponent implements OnInit {

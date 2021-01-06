@@ -6,15 +6,11 @@ main {
     justify-content: center;
 }
 
-#h1 {
-    
-}
-
 h1 {
     color: #dc4128;
     text-align: center;
-    font-size: 50px;
-    margin-bottom: 3%;
+    font-size: 45px;
+    margin-bottom: 1%;
     font-weight: 900;
 }
 
@@ -115,16 +111,11 @@ h1 {
 }
 
 .continue {
-  width: 100%;
   margin-top: 1%;
   font-weight: 900;
   font-size: 25px;
   cursor: pointer;
   text-align: right;
-}
-
-.continue i {
-  margin-left: 5px;
 }
 
 @media (max-width: 800px) {
@@ -154,7 +145,6 @@ h1 {
         overflow: hidden;
         margin-left: 5vw;
         margin-right: 5vw !important;
-        margin-bottom: 5vh;
     }
 
     .fullCoast {
@@ -193,5 +183,9 @@ h1 {
 
     h2 {
         font-size: 1.4rem;
+    }
+
+    .continue {
+        margin-right: 5vw;
     }
 }

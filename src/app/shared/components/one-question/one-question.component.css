@@ -4,7 +4,7 @@
 
 .fullQuestion {
     width: 80vw;
-    margin: 3% 0;
+    margin: 0% 0% 3% 0;
     box-sizing: border-box;
     transition: 1s;
 }

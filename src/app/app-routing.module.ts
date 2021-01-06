@@ -9,12 +9,12 @@ import { StartGameComponent } from './shared/components/start-game/start-game.co
 
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: 'game', component: MainGameComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: MainPageComponent, data: {animation: 'MainPage'}},
+  {path: 'game', component: MainGameComponent, data: {animation: 'MainGamePage'}},
+  {path: 'login', component: LoginComponent, data: {animation: 'LoginPage'}},
   {path: 'newQuestion', component: NewQuestionComponent},
-  {path: 'admin', component: MainAdminPageComponent},
-  {path: 'finish', component: StartGameComponent},
+  {path: 'admin', component: MainAdminPageComponent, data: {animation: 'AdminMainPage'}},
+  {path: 'finish', component: StartGameComponent, data: {animation: 'StartGamePage'}},
 ];
 
 @NgModule({

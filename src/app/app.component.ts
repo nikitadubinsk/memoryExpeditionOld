@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { slideInAnimation } from './animations';
 
 export interface Question {
   text?: string,
@@ -18,7 +20,10 @@ export interface Question {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class AppComponent {
 
@@ -31,6 +36,10 @@ export class AppComponent {
     messagingSenderId: "808445640490",
     appId: "1:808445640490:web:01991c9091b1d24acc2853"
   };
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
 
   ngOnInit() {
     firebase.initializeApp(this.firebaseConfig); 

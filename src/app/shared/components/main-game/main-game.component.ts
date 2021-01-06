@@ -21,6 +21,12 @@ import { animate, style, transition, trigger } from '@angular/animations';
           transform: 'scale(1.2)'
         }))
       ]),
+    ]),
+    trigger('continueButton', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(1000)
+      ])
     ])
   ]
 })
@@ -35,6 +41,7 @@ export class MainGameComponent implements OnInit {
   points = 0;
   allID = [];
   loading = false;
+  questionState = 'full'
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
@@ -70,7 +77,8 @@ export class MainGameComponent implements OnInit {
 
   openFull(question: Question) {
     this.openFullQuestionFlag = true;
-    this.question  =  question;
+    this.question = question;
+    this.questionState = 'one'
   }
 
   plusPoints(p) {
@@ -93,6 +101,7 @@ export class MainGameComponent implements OnInit {
           points: this.points,
           time: localStorage['time']
         }
+    this.closePopapFinishGame()
         try {
           await this.questionService.addUser(user);
         } catch(e) {
@@ -103,6 +112,7 @@ export class MainGameComponent implements OnInit {
 
   async close(bool) {
     this.openFullQuestionFlag = !this.openFullQuestionFlag;
+    this.questionState = 'full';
     if (this.allID.length == 30) {  
       this.finishGame();
       } 
