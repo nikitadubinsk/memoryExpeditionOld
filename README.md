@@ -6,6 +6,7 @@
 1. Angular
   1. Animation
   2. Pipes
+  3. И многие другие
 2. Firebase
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
