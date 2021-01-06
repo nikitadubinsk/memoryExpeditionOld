@@ -1,11 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from 'src/app/app.component';
-import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-one-question',
   templateUrl: './one-question.component.html',
-  styleUrls: ['./one-question.component.css']
+  styleUrls: ['./one-question.component.css'],
+  animations: [
+    trigger('continueButton', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(1000)
+      ])
+    ])
+  ]
 })
 export class OneQuestionComponent implements OnInit {
 

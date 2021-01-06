@@ -1,4 +1,4 @@
-div {
+.notPrint {
     display: grid;
     grid-template-columns: 5% 25% 35% 15% 10% 10%;
     grid-template-rows: 1fr;
@@ -8,7 +8,7 @@ div {
     align-items: center;
 }
 
-div p {
+.notPrint p {
     text-align: center;
     word-wrap: break-word;
 }
@@ -35,8 +35,57 @@ button:hover {
     color: #dc4128;
 }
 
+.print {
+    display: none;
+}
+
 @media (max-width: 800px) {
     div {
         width: 180vw;
+    }
+}
+
+@media print {
+    .notPrint {
+        display: none;
+    }
+    
+    .print {
+        display: block;
+    }
+
+    td, tr {
+        box-sizing: border-box;
+    }
+
+    tr {
+        width: 90vw;
+    }
+
+    td {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    td:nth-child(1) {
+        width: 5vw;
+    }
+
+    td:nth-child(2) {
+        width: 30vw;
+    }
+
+    td:nth-child(3) {
+        width: 35vw;
+    }
+
+    td:nth-child(4) {
+        width: 15vw;
+    }
+
+    td:nth-child(5) {
+        width: 10vw;
     }
 }

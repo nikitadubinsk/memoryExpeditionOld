@@ -101,6 +101,10 @@ h5 {
     font-size: 40px;
 }
 
+.print {
+    display: none;
+}
+
 @media (max-width: 800px) {
     nav {
         flex-direction: column;
@@ -162,3 +166,45 @@ h5 {
     }
 
 }
+
+.notPrint {
+    display: block;
+}
+
+.print {
+    display: none;
+}
+
+@media print {
+    .notPrint {
+        display: none;
+    }
+
+    .print {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .row {
+        display: none;
+    }
+
+    .notPrint {
+        display: none;
+    }
+
+    .print {
+        display: block;
+    }
+
+    table {
+        width: 90vw;
+        border-collapse: collapse;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+

@@ -6,6 +6,7 @@
     width: 80vw;
     margin: 3% 0;
     box-sizing: border-box;
+    transition: 1s;
 }
 
 .answer {
@@ -100,12 +101,6 @@ h2 {
     font-size: 25px;
     cursor: pointer;
     text-align: right;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.opacity {
-    opacity: 1 !important;
 }
 
 .continue i {

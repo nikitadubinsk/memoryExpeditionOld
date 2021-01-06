@@ -5,62 +5,46 @@
             <div *ngIf="!openFullQuestionFlag && !loading" class="allTable">
                 <h6 class="category_name">Полководцы</h6>
                 <div class="fullCoast">
-                    <app-one-coast
-                        *ngFor="let question of category1"
-                        [question]="question"
-                        (openFullQuestion)="openFull($event)"
-                        (onAllId)="allId($event)"
-                        [allId] = "allID"
-                    ></app-one-coast>
+                    <app-one-coast *ngFor="let question of questions | category:'category1'" [question]="question"
+                        (openFullQuestion)="openFull($event)" (onAllId)="allId($event)" [allId]="allID"></app-one-coast>
                 </div>
                 <h6 class="category_name">Военная техника и оружие</h6>
                 <div class="fullCoast">
-                    <app-one-coast
-                        *ngFor="let question of category2"
-                        [question]="question"
-                        (openFullQuestion)="openFull($event)"
-                        (onAllId)="allId($event)"
-                        [allId] = "allID"
-                    ></app-one-coast>
+                    <app-one-coast *ngFor="let question of questions | category:'category2'" [question]="question"
+                        (openFullQuestion)="openFull($event)" (onAllId)="allId($event)" [allId]="allID"></app-one-coast>
                 </div>
                 <h6 class="category_name">Города и сражения</h6>
                 <div class="fullCoast">
-                    <app-one-coast
-                        *ngFor="let question of category3"
-                        [question]="question"
-                        (openFullQuestion)="openFull($event)"
-                        (onAllId)="allId($event)"
-                        [allId] = "allID"
-                    ></app-one-coast>
+                    <app-one-coast *ngFor="let question of questions | category:'category3'" [question]="question"
+                        (openFullQuestion)="openFull($event)" (onAllId)="allId($event)" [allId]="allID"></app-one-coast>
                 </div>
                 <h6 class="category_name">Подвиги и герои</h6>
                 <div class="fullCoast">
-                    <app-one-coast
-                        *ngFor="let question of category4"
-                        [question]="question"
-                        (openFullQuestion)="openFull($event)"
-                        (onAllId)="allId($event)"
-                        [allId] = "allID"
-                    ></app-one-coast>
+                    <app-one-coast *ngFor="let question of questions | category:'category4'" [question]="question"
+                        (openFullQuestion)="openFull($event)" (onAllId)="allId($event)" [allId]="allID"></app-one-coast>
                 </div>
                 <h6 class="category_name">Животные на войне</h6>
                 <div class="fullCoast">
-                    <app-one-coast
-                        *ngFor="let question of category5"
-                        [question]="question"
-                        (openFullQuestion)="openFull($event)"
-                        (onAllId)="allId($event)"
-                        [allId] = "allID"
-                    ></app-one-coast>
+                    <app-one-coast *ngFor="let question of questions | category:'category5'" [question]="question"
+                        (openFullQuestion)="openFull($event)" (onAllId)="allId($event)" [allId]="allID"></app-one-coast>
                 </div>
             </div>
+            <p (click)="openPopupFinishGame()" class="continue" [@continueButton]=""
+                *ngIf="!openFullQuestionFlag && !loading">Завершить игру &#10142;
+            </p>
         </div>
         <p *ngIf="loading" class="loading">Загрузка...</p>
-        <app-one-question 
-            *ngIf="openFullQuestionFlag && !loading"
-            [question]="question"
-            (onPoints)="plusPoints($event)"
-            (onFlag)="close($event)"
-        ></app-one-question>
+        <app-one-question *ngIf="openFullQuestionFlag && !loading" [question]="question" (onPoints)="plusPoints($event)"
+            (onFlag)="close($event)"></app-one-question>
     </div>
 </main>
+
+<div class="blackScreen" *ngIf="openPopapFinishGameFlag" [@popup]="">
+    <div class="modal">
+        <h2>Вы точно хотите закончить игру? Вам осталось ответить всего на {{30 - allID.length}} вопроса(ов)</h2>
+        <div class="btn-group">
+            <button class="btn btn-primary" (click)="finishGame()">Завершить</button>
+            <button class="btn btn-alternate" (click)="closePopapFinishGame()">Продолжить</button>
+        </div>
+    </div>
+</div>

@@ -20,12 +20,21 @@
             <i class="fas fa-redo" (click)="updateUser()"></i>
         </div>
         <div class="allUsers">
+            <table class="print"> 
+                <app-one-user
+                    *ngFor="let user of allUsers; let i = index"
+                    [user]="user"
+                    [idx] = "i"
+                    (onDelete)="deleteUser($event)"
+                ></app-one-user>
+            </table>
             <app-one-user
-                *ngFor="let user of allUsers; let i = index"
-                [user]="user"
-                [idx] = "i"
-                (onDelete)="deleteUser($event)"
-            ></app-one-user>
+                    *ngFor="let user of allUsers; let i = index"
+                    [user]="user"
+                    [idx] = "i"
+                    (onDelete)="deleteUser($event)"
+                    class="notPrint"
+                ></app-one-user>
         </div>
     </div>
     <div *ngIf="loading">

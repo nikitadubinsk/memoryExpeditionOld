@@ -26,7 +26,7 @@ export class QuestionService {
   }
 
   deleteUser(user) {
-    return this.http.delete(`https://myowngame-95366.firebaseio.com/users/${user}.json`).toPromise()
+    return this.http.delete(`https://myowngame-95366.firebaseio.com/users/${user.id}.json`).toPromise()
   }
   
 }

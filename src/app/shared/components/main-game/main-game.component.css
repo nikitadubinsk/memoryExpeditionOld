@@ -51,6 +51,82 @@ h1 {
     color: #dc4128;
 }
 
+.blackScreen {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.modal {
+  width: 50vw;
+  padding: 2%;
+  z-index: 2;
+  background: white;
+  position: relative;
+  border-radius: 10px;
+  margin-left: 25vw;
+  text-align: center;
+  margin-top: 50vh;
+  transform: translate(0, -50%);
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+.btn {
+    padding: 2%;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin: 0 5%;
+}
+
+.btn-primary {
+    border: 2px solid #dc4128;
+    background: #dc4128;
+    color: white;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #dc4128;
+}
+
+.btn-alternate {
+    border: 2px solid #dc4128;
+    background: transparent;
+    color: #dc4128;
+}
+
+.btn-alternate:hover {
+  background: #dc4128;
+  color: white;
+}
+
+.continue {
+  width: 100%;
+  margin-top: 1%;
+  font-weight: 900;
+  font-size: 25px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.continue i {
+  margin-left: 5px;
+}
+
 @media (max-width: 800px) {
 
     main {
@@ -102,4 +178,20 @@ h1 {
         margin-bottom: 7%;
     }
 
+    .modal {
+      width: 90vw;
+      padding: 2%;
+      z-index: 2;
+      background: white;
+      position: relative;
+      border-radius: 10px;
+      margin-left: 5vw;
+      text-align: center;
+      margin-top: 50vh;
+      transform: translate(0, -50%);
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
 }

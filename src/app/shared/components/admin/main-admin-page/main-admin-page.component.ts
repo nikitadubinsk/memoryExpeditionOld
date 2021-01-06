@@ -22,6 +22,7 @@ export class MainAdminPageComponent implements OnInit {
   sortTimeIndex = 0;
   sortPointsUp = true;
   sortTimeUp = true;
+  loadingDelete = false;
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
@@ -53,7 +54,15 @@ export class MainAdminPageComponent implements OnInit {
   }
 
   async deleteUser(user) {
-    console.log(user);
+    try {
+      this.loadingDelete = true;
+      await this.questionService.deleteUser(user);
+      let index = this.allUsers.findIndex((el)=>el.id==user.id); 
+      this.allUsers.splice(index, 1);
+      this.loadingDelete = false;
+    } catch(e) {
+      console.log(e.message)
+    }
   }
 
   async updateUser() {

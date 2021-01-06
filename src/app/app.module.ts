@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,9 @@ import { LoginComponent } from './shared/components/admin/login/login.component'
 import { MainAdminPageComponent } from './shared/components/admin/main-admin-page/main-admin-page.component';
 import { NewQuestionComponent } from './shared/components/admin/new-question/new-question.component';
 import { OneUserComponent } from './shared/components/admin/one-user/one-user.component';
-import { LaterPageComponent } from './shared/components/later-page/later-page.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { CategoryPipe } from './shared/pipes/category.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { LaterPageComponent } from './shared/components/later-page/later-page.co
     MainAdminPageComponent,
     NewQuestionComponent,
     OneUserComponent,
-    LaterPageComponent
+    CategoryPipe,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,8 @@ import { LaterPageComponent } from './shared/components/later-page/later-page.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

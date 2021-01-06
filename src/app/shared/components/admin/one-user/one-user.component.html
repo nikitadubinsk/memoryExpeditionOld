@@ -1,8 +1,18 @@
-<div>
+<div class="notPrint">
     <p>{{idx+1}}</p>
     <p>{{user.name}}</p>
     <p>{{user.link}}</p>
     <p>{{user.time | date: 'HH:mm dd.MM.yy'}}</p>
     <p>{{user.points}}</p>
     <button (click)="deleteUser()">Удалить</button>
+</div>
+
+<div class="print">
+    <tr>    
+        <td>{{idx+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.link}}</td>
+        <td>{{user.time | date: 'HH:mm dd.MM.yy'}}</td>
+        <td>{{user.points}}</td>
+    </tr>
 </div>
