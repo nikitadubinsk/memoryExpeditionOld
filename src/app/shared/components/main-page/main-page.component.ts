@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -15,7 +15,7 @@ export class MainPageComponent implements OnInit {
   personalData = false;
   date = new Date();
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -27,17 +27,12 @@ export class MainPageComponent implements OnInit {
   }
 
   submit() {
-    var date = new Date();
     localStorage['name'] = this.form.value.name;
     localStorage['link'] = this.form.value.link;
     localStorage['day'] = this.date.getDate();
     localStorage['hours'] = this.date.getHours();
     localStorage['time'] = this.date;
-    if (localStorage['day'] < 25 || localStorage['day'] == 25 || (localStorage['day'] == 26 && localStorage['hours']<18)) {
-      console.log("Данные отправляются на сервер")
-    } else {
-      console.log("Данные НЕ отправляются на сервер")
-    }
+    this.form = new FormGroup({});
     this.router.navigate(['/game'])
   }
 

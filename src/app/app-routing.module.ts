@@ -9,7 +9,7 @@ import { StartGameComponent } from './shared/components/start-game/start-game.co
 
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent, data: {animation: 'MainPage'}},
+  {path: '', component: MainPageComponent}},
   {path: 'game', component: MainGameComponent, data: {animation: 'MainGamePage'}},
   {path: 'login', component: LoginComponent, data: {animation: 'LoginPage'}},
   {path: 'newQuestion', component: NewQuestionComponent},
